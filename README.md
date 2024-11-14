@@ -20,7 +20,7 @@ Follow these steps to set up the project:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/PHP-Send-OTP.git
+    git clone https://github.com/pakelcomedy/PHP-Send-OTP.git
     cd PHP-Send-OTP
     ```
 
