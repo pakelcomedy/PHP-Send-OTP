@@ -1,0 +1,122 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send OTP</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+        }
+        .container h2 {
+            color: #4e54c8;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input[type="email"] {
+            width: 100%;
+            max-width: 280px;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        input[type="email"]:focus {
+            border-color: #4e54c8;
+            box-shadow: 0 0 5px rgba(78, 84, 200, 0.3);
+        }
+        button {
+            background: #4e54c8;
+            color: #fff;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 280px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        button:hover {
+            background: #3e43b6;
+        }
+        .message {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .message.success {
+            color: #28a745;
+        }
+        .message.error {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Send OTP</h2>
+    <form id="otpForm">
+        <input type="email" id="email" name="email" placeholder="Enter recipient's email" required>
+        <button type="submit">Send OTP</button>
+        <div class="message" id="responseMessage"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("otpForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const responseMessage = document.getElementById("responseMessage");
+
+        fetch("send_otp.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `email=${encodeURIComponent(email)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                responseMessage.className = "message success";
+                responseMessage.textContent = data.message;
+            } else {
+                responseMessage.className = "message error";
+                responseMessage.textContent = data.message;
+            }
+        })
+        .catch(error => {
+            responseMessage.className = "message error";
+            responseMessage.textContent = "Error sending OTP.";
+        });
+    });
+</script>
+
+</body>
+</html>
