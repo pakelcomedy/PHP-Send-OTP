@@ -64,6 +64,7 @@ Follow these steps to set up the project:
 Here is a screenshot of the application:
 
 ![image](https://github.com/user-attachments/assets/d583afa8-54b7-4dec-84ab-f21ac292a05c)
+![image](https://github.com/user-attachments/assets/9dd1d641-3274-4060-9745-1ecdc81d5393)
 
 
 ## Troubleshooting
