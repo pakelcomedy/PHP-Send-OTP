@@ -20,7 +20,7 @@ Follow these steps to set up the project:
 
 1. **Clone the repository**:
     ```bash
-    git clone [https://github.com/yourusername/PHP-Send-OTP.git
+    git clone https://github.com/yourusername/PHP-Send-OTP.git
     cd PHP-Send-OTP
     ```
 
@@ -58,6 +58,13 @@ Follow these steps to set up the project:
 1. Enter the recipient's email address in the input form.
 2. Click "Send OTP" to send the OTP to the provided email.
 3. The response message will indicate whether the OTP was sent successfully or if there was an error.
+
+## Screenshot
+
+Here is a screenshot of the application:
+
+![image](https://github.com/user-attachments/assets/d583afa8-54b7-4dec-84ab-f21ac292a05c)
+
 
 ## Troubleshooting
 
